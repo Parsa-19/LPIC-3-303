@@ -1,0 +1,60 @@
+Bale ID: constantine110
+http://download.anisa.co.ir/Course/LPIC-303/rocky8.ova
+http://185.208.79.13/rocky.ova
+
+
+http://185.208.79.13/site/
+user: anisa
+pass: qazwsx 
+
+http://185.208.79.13/site/303.tar.gz
+
+
+user: root
+pass: qazwsx
+
+dhclient
+
+
+#include <stdio.h>
+#include <string.h>
+int main(int argc, char *argv[])
+{
+char buf[100];
+strcpy(buf,argv[1]);
+printf("Input was: %s\n",buf);
+return 0;
+}
+
+
+grep -i stackprotector /boot/config-4.18.0-425.10.1.el8_7.x86_64    
+        
+
+   44  cat /proc/cpuinfo | grep -i nx
+   45  dmesg | grep -i nx
+        
+gcc code.c -fno-stack-protector   -z execstack   -o code
+        
+
+./code `python3 -c 'print("A"*200)'`    
+    
+https://www.first.org/cvss/calculator/3.0        
+
+        
+[root@localhost 16:14:09 sys]
+----> dnf update  ^C
+
+[root@localhost 16:24:22 sys]
+----> dnf updateinfo   ^C
+
+[root@localhost 16:24:26 sys]
+----> dnf updateinfo list updates security   ^C
+
+[root@localhost 16:24:28 sys]
+----> dnf update --security
+        
+
+gpg -c --cipher-algo AES256 secret.txt
+    
+        
+shred -u -z -n 9 -v secret.txt

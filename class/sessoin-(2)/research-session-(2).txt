@@ -1,0 +1,43 @@
+server side channel attacks -> AI (keystroke)
+
+what does it mean to have a bounded key pair(sub) to pub
+
+dd command (to copy luks header)
+
+vim /etc/shadow
+vim /etc/login.defs
+
+
+"""
+how does hash iteration is going to help synce the hashed data that had gotten form one value is always the same. attacker could compare each hashed data from one passphrase in each iteration. its just the number of iteration that is unknown.
+"""
+
+search for bruteforce-luks packges and test 
+
+keyring
+kernel ring buffer
+
+blkid
+
+you can implement a scenario which you create a special file in your computer somewhere and then tell the kernel if the file exists in this directory you then indentify the block device's UUID and mount the specific storage device(USB). you can create this by a script at low level.
+
+create a BadUSB
+
+man 7 keyring you may write exploits in c or whatever
+
+-------------------------------------------------------------
+
+craete a detached header in luks (could be on usb drive or elswhere)
+
+luksHeaderBackup
+luksHeaderRestore
+
+after you encrypt the storage device with luks and created the mykey file to unlock the system automaticlly (craeted a file in /root/mykey and put it on the /etc/crypttab) durring the boot setup how does it use this key file to unlock the device before its unlocked already.
+hint=initramfs
+implement this structure.
+
+entropy in linux
+/dev/random
+/dev/urandom  <=
+
+PBKDF2

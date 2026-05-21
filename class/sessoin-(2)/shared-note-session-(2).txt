@@ -1,0 +1,65 @@
+cat /proc/sys/kernel/random/entropy_avail
+
+
+gpg --full-generate-key
+gpg --full-generate-key --expert
+    
+gpg --list-keys
+        
+gpg --export -a -o root_pub.key
+gpg --export -a -o hacker_pub.key
+
+gpg --import root_pub.key
+gpg --import hacker_pub.key        
+gpg --list-packets root_pub.key
+        
+gpg -s -e a.txt
+
+gpg -d a.txt.gpg
+    
+[hacker@localhost tmp]$ gpg --edit-key Amir 
+
+[hacker@localhost tmp]$ gpg -d a.txt.gpg 
+
+        
+  41  gpg --keyid-format LONG  --list-key
+   42  gpg --send-keys --keyserver keyserver.ubuntu.com 75008AE9F3B0CFBC
+        
+
+gpg --keyserver keyserver.ubuntu.com --search-keys mina@mina.ir        
+
+ gpg --delete-secret-and-public-keys a@a.com
+ 
+ ------------------
+ 
+[root@localhost 15:11:13 tmp]
+----> gpg --output public.key --armor --export amir@amir.ir
+
+[root@localhost 15:11:27 tmp]
+----> gpg --output private.key --armor --export-secret-keys amir@amir.ir  
+    
+-------------------
+fdisk /dev/sdb    
+cryptsetup luksFormat /dev/sdb1        
+
+cryptsetup isLuks /dev/sdb1  && echo DONE        
+
+        
+cryptsetup luksOpen /dev/sdb1    secret
+    
+    
+cryptsetup status /dev/mapper/secret        
+
+cryptsetup luksDump /dev/sdb1 | less
+     
+cryptsetup luksAddKey /dev/sdb1
+        
+cryptsetup luksRemoveKey /dev/sdb1
+
+mkfs -t ext4   /dev/mapper/secret 
+    
+[root@localhost 16:47:09 ~]
+----> mkdir /secret 
+
+[root@localhost 16:47:20 ~]
+----> mount /dev/mapper/secret     /secret        

@@ -1,0 +1,110 @@
+# see the available cipher(symmetric) algorithms:
+gpg --version 
+
+
+-----symmetric-----	
+gpg -c --cipher-algo AES256 secret.txt
+
+shred -uzvn 9 secret.txt
+
+gpg -d secret.txt.gpg > secret.txt
+
+
+
+-----asymmetric-----
+gpg --full-gen-key --expert
+
+gpg --list-keys
+gpg --list-secret-keys
+gpg --list-keys --keyid-format LONG
+
+gpg --delete-secret-key [KEY-ID]
+gpg --delete-key [KEY-ID]
+gpg --delete-secret-and-public-keys test@gmail.com
+
+gpg --export -a -o user_pub.key desired-user@example.com 
+gpg --export -a [KEY-ID] > user_pub.key
+gpg --import user_pub.key
+gpg --list-packets user_pub.key
+
+
+# trust the user's public key in the machine that you encrypt data using his pub key
+gpg --edit-key [USER-EMAIL]
+	> help
+	> trust
+	> 5
+	> y
+	> save
+	> quit
+
+
+# -e encrypts, -s signs, -a armor-format, -r choose which pub key to ecrypt with
+gpg --encrypt -s -a -r desired-user@example.com secret.txt
+
+gpg --decrypt secret.txt.asc > secret.txt
+
+
+
+-----LUKS-SETUP-----
+
+fdisk /dev/sdb1
+cryptsetup luksFormat /dev/sdb1
+	> YES
+	> password
+	> verify password
+echo $?
+
+cryptsetup isLuks /dev/sdb1 && echo done
+
+cryptsetup luksOpen /dev/sdb1 secret
+	> password
+
+ls -d /dev/mapper/secret
+
+cryptsetup status /dev/mapper/secret
+
+cryptsetup luksDump /dev/sdb1
+
+cryptsetup luksAddKey /dev/adb1
+
+cryptsetup luksRemoveKey
+
+mkfs -t ext4 /dev/mapper/secret
+
+mkdir /secret
+
+mount /dev/mapper/secret /secret
+
+umount /dev/mapper/secret
+
+cryptsetup luksClose /dev/sdb1
+
+vim /etc/crypttab
+```
+secret	  /dev/sdb1	none	defaults
+```
+
+vim /etc/fstab
+```
+/dev/mapper/secret      /secret      ext4    defaults        0 0
+```
+
+dd if=/dev/urandom of=~/mykey bs=16384 count=1
+chmod 600 mykey 
+sudo chown root:root mykey 
+
+vim /etc/crypttab
+```
+secret	  /dev/sdb1	/root/mykey	defaults
+```
+
+cryptsetup luksAddKey /dev/sdb1 /root/mykey
+
+cryptsetup luksErase /dev/sdb1
+
+# lists the cryptes disks or volumes
+dmsetup ls --target crypt
+
+cryptsetup luksHeaderBackup /dev/sdb1 --header-backup-file sdb_header_backup.img
+
+sudo cryptsetup luksHeaderRestore /dev/sdb1 --header-backup-file sdb1_header_backup.img

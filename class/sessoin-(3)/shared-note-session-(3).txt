@@ -1,0 +1,62 @@
+cd /etc/httpd/ && mkdir ssl ; cd ssl
+    
+openssl genrsa 2048 > private.key
+
+openssl rsa -in private.key -pubout > public.key
+
+openssl req -new -key private.key > request.csr      
+
+openssl req -text -in request.csr        
+
+openssl x509 -in request.csr -out certificate.crt -req -signkey private.key -days 365        
+
+  
+  
+openssl x509 -pubkey -noout -in certificate.crt  
+    
+        
+[root@localhost 16:04:17 ssl]
+----> systemctl stop firewalld   ^C
+
+[root@localhost 16:05:10 ssl]
+----> systemctl mask firewalld
+
+nmap -p 22-1024  192.168.56.104
+
+-----------
+iptables -I INPUT -p tcp -m multiport  --dport 23,25,110  -j DROP
+
+iptables -I INPUT -p tcp -m iprange --src-range 10.0.0.5-10.0.0.15  -j DROP
+        
+iptables -I INPUT -p tcp -m connlimit --connlimit-above 4  --dport 23    -j DROP
+        
+        
+iptables -nvL
+
+iptables -A INPUT -p tcp --dport 23 -m state --state NEW,ESTABLISHED     -j ACCEPT
+
+
+iptables -F
+iptables -P INPUT DROP 
+iptables -P OUTPUT DROP
+
+iptables -I INPUT -p tcp --dport 22 -j ACCEPT
+
+
+iptables -I OUTPUT -p tcp -m state --state ESTABLISHED -j ACCEPT 
+
+ -------------------   
+iptables -I INPUT -p tcp --dport 22 -m conntrack --ctstate NEW  -m recent --set        
+
+iptables -I INPUT -p tcp --dport 22 -m conntrack --ctstate NEW  -m recent  --update --second 60 --hitcount 10 -j DROP
+
+a.sh 
+for i in `seq 1 30`
+do
+  ssh root@192.168.56.104 &
+done
+
+
+iptables -A OUTPUT -d anisa.co.ir -p tcp --dport 443 -j DROP   
+
+iptables -A OUTPUT -p tcp -m string  --string anisa.co.ir  --algo kmp  -j DROP
