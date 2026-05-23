@@ -1,0 +1,88 @@
+""firewall-cmd --get-zones
+firewall-cmd --get-default-zone
+firewall-cmd --get-active-zones
+firewall-cmd --zone=public  --list-all
+firewall-cmd  --list-all
+
+firewall-cmd  --zone=public --add-interface=enp0s3 --permanent
+
+firewall-cmd  --zone=public --add-interface=enp0s8 --permanent
+
+firewall-cmd --reload
+
+firewall-cmd  --zone=drop  --change-interface=enp0s3
+  
+firewall-cmd  --set-default-zone=drop        
+
+firewall-cmd  --get-zones        
+
+        
+askari.xml:
+<?xml version="1.0" encoding="utf-8"?>
+<zone>
+  <short>Askari</short>
+  <description>Askari Zone</description>
+  <service name="ssh"/>
+  <service name="ftp"/>
+  <service name="http"/>
+  <service name="https"/>
+  <port port="14000" protocol="tcp"/>
+  <port port="14000" protocol="udp"/>
+</zone>
+
+service:
+zzz.xml
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>ZZZ Ports</short>
+  <description>China Tool</description>
+  <port protocol="tcp" port="18000"/>
+  <port protocol="udp" port="18000"/>
+</service>
+
+ 
+firewall-cmd  --zone=public --add-service=http 
+
+firewall-cmd  --zone=public --remove-service=http     
+        
+
+firewall-cmd  --add-port=1723/udp
+
+firewall-cmd  --remove-port=1723/udp        
+
+ firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.58.1"  drop '
+
+ firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.59.1" service name="ftp"  drop '
+
+ firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.60.1" port port="19000" protocol="tcp"    drop '
+
+ firewall-cmd  --remove-rich-rule='rule family="ipv4" source address="192.168.60.1" port port="19000" protocol="tcp" drop         
+
+    
+ firewall-cmd  --add-rich-rule='rule priority="10" family="ipv4" source address="192.168.61.1"  drop '   
+        
+
+firewall-cmd  --set-default-zone=drop
+
+
+firewall-cmd  --zone=drop --change-interface=enp0s3
+
+
+firewall-cmd  --zone=drop --change-interface=enp0s8  
+      
+  firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.56.1" port port="22" protocol="tcp"  accept   '      
+
+    
+--------------------
+setfacl -m  u:hacker:rwx  a.txt
+
+getfacl  a.txt
+
+    
+----> getenforce 
+
+[root@vbox 13:40:24 ~]
+----> setenforce permissive | 0  
+
+[root@vbox 13:42:23 ~]
+----> setenforce  enforcing | 1       
