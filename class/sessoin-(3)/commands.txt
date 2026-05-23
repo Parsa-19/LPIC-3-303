@@ -1,4 +1,21 @@
 cd /etc/httpd && mkdir ssl ; cd ssl
+
+openssl genrsa -out private.key 2048
+openssl rsa -text -in private.key -noout  # view decoded private key
+openssl rsa -in private.key -pubout -out public.key
+openssl req -new -key private.key -out request.csr
+openssl req -text -in request.csr -noout -verify
+
+# create a request.csr in one step without any prompt:
+openssl req -new -key private.key -out request.csr \
+-subj "/C=US/ST=Utah/L=Lehi/O=Your Company, Inc./OU=IT/CN=yourdomain.com"
+
+# create both private.key and request.csr in one step (no reqeust.csr prompt):
+openssl req -new \
+-newkey rsa:2048 -nodes -keyout private.key \
+-out request.csr \
+-subj "/C=US/ST=Utah/L=Lehi/O=Your Company, Inc./OU=IT/CN=yourdomain.com"
+
 openssl genrsa 2048 > private.key
 openssl rsa -in private.key -pubout > public.key
 openssl req -new -key private.key > request.csr
@@ -7,13 +24,13 @@ openssl req -text -in request.csr
 # you send this request.csr to CA
 
 
------CA-terminal-----
+-----CA-side-----
 
-# the private key is specific to CA (but for test we create self-signed certificate in the same vm with the samep private key)
+# the private key is specific to CA (but for test we create self-signed certificate in the same vm with the same private key)
 openssl x509 -in request.csr -out certificate.crt -req -signkey private.key -days 365
 
-openssl x509 -text -in certificate.crt  # get info of the certificate
-openssl x509 -pubkey -noout -in certificate.crt   # get pubkey within certificate(this is always the exact public key you created in your vm at first)
+openssl x509 -text -in certificate.crt -noout  # get info of the certificate
+openssl x509 -pubkey -in certificate.crt -noout  # get pubkey within certificate(this is always the exact public key you created in your vm at first)
 
 vim /etc/httpd/conf.d/ssl.conf
 ```
@@ -22,11 +39,68 @@ SSLCertificateFile /etc/httpd/ssl/certificate.crt
 SSLCertificateKeyFile /etc/httpd/ssl/private.key
 ```
 
-# check the httpd on browser
-systemctl stop firewalld
-systemctl restart httpd
-# you should see the insecure page of httpd
+# or you can even configure the ssl in your apache virtual host like:
+```
+<VirtualHost *:443>
+        ServerName 192.168.55.103
+        DocumentRoot /var/www/me
+        DirectoryIndex index.php index.htm index.html
+        Alias /icons/ /var/www/icons/
+        # ScriptAlias /cgi-bin/ /var/www/sub-domains/your-server-hostname/cgi-bin/
 
+    ErrorLog /var/log/httpd/err_me.log
+    CustomLog /var/log/httpd/access_me.log combined
+
+        SSLEngine on
+        SSLCertificateFile /etc/httpd/ssl/certificate.crt
+        SSLCertificateKeyFile /etc/httpd/ssl/private.key
+
+        <Directory /var/www/me>
+                Options -ExecCGI -Indexes
+                AllowOverride None
+
+                Order deny,allow
+                Deny from all
+                Allow from all
+
+                Satisfy all
+        </Directory>
+</VirtualHost>
+``` 
+# replace the ServerName DocumentRoot and SSL config files and create the needed files and restart httpd
+systemctl restart httpd
+
+# make sure firewall is off for now
+systemctl stop firewalld
+
+# you should now see the page in your ip address in port 443 
+# you can even check the insecure cert in the browser from top left corner next to the search bar in "certificate detailes"
+
+
+
+# convert PEM certificate format to PKCS#12 
+```
+PKCS#12: 
+an archival file that stores both the certificate and the private key and its 
+useful when you migrate certificates and keys from one system to another as it 
+contains all necessary files.
+```
+# you will be asked to encrypt the file with strong password.
+# this is a good practice when migrate cert to another system
+# it combines your private key and your certificate into a single .pfx file.
+openssl pkcs12 -export -name "exampleDomain-selfsigned-(365days)" -out certificate.pfx -inkey private.key -in certificate.crt 
+
+# PKCS#12 to PEM
+openssl pkcs12 -in certificate.pfx -nocerts -out private.key -nodes # extract private key
+openssl pkcs12 -in certificate.pfx -nokeys -clcerts -out certificate.crt # extract certificate.crt
+
+# PEM to DER
+openssl x509 -inform PEM -in certificate.crt -outform DER -out certificate.der  # convert certificate.crt to DER
+openssl rsa -inform PEM -in private.key -outform DER -out private_key.der  # convert private.key to DER
+
+# DER to PEM
+openssl x509 -inform DER -in certificate.der -outform PEM -out certificate_PEM.crt # certificate back to PEM 
+openssl rsa -inform DER -in private_key.der -outform PEM -out private_PEM.key # private key back to PEM
 
 ------------------------------
 
@@ -61,8 +135,8 @@ iptables -P INPUT DROP
 iptables -P OUTPUT DROP
 iptables -P FORWARD DROP
 
-sudo iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW -m recent --set
-sudo iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW -m recent --set -m recent --update --second 60 --hitcount 10 -j DROP
+iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW -m recent --set
+iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW -m recent --set -m recent --update --second 60 --hitcount 10 -j DROP
 
 iptables -A OUTPUT -d anisa.co.ir -p tcp --dport 443 -j DROP   
 iptables -A OUTPUT -p tcp -m string --string anisa.co.ir --algo kmp -j DROP        
