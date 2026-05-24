@@ -73,7 +73,7 @@ systemctl restart httpd
 # make sure firewall is off for now
 systemctl stop firewalld
 
-# you should now see the page in your ip address in port 443 
+# you should now be able to see the apache page on port 443 
 # you can even check the insecure cert in the browser from top left corner next to the search bar in "certificate detailes"
 
 
@@ -121,7 +121,7 @@ nmap -O 192.168.3.27         # guess for OS version
 
 
 systemctl stop firewalld
-systemctl masak firewalld
+systemctl mask firewalld
 iptables -nvL
 iptables -I INPUT -p tcp -m multiport --dport 23,25,110 -j DROP
 iptables -I INPUT -p tcp -m iprange --src-range 10.0.0.5-10.0.0.15 -j DROP
