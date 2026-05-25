@@ -50,16 +50,16 @@ firewall-cmd  --add-port=1723/udp
 
 firewall-cmd  --remove-port=1723/udp        
 
- firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.58.1"  drop '
+firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.58.1"  drop '
 
- firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.59.1" service name="ftp"  drop '
+firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.59.1" service name="ftp"  drop '
 
- firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.60.1" port port="19000" protocol="tcp"    drop '
+firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.60.1" port port="19000" protocol="tcp"    drop '
 
- firewall-cmd  --remove-rich-rule='rule family="ipv4" source address="192.168.60.1" port port="19000" protocol="tcp" drop         
+firewall-cmd  --remove-rich-rule='rule family="ipv4" source address="192.168.60.1" port port="19000" protocol="tcp" drop         
 
-    
- firewall-cmd  --add-rich-rule='rule priority="10" family="ipv4" source address="192.168.61.1"  drop '   
+   
+firewall-cmd  --add-rich-rule='rule priority="10" family="ipv4" source address="192.168.61.1"  drop '   
         
 
 firewall-cmd  --set-default-zone=drop
@@ -70,7 +70,7 @@ firewall-cmd  --zone=drop --change-interface=enp0s3
 
 firewall-cmd  --zone=drop --change-interface=enp0s8  
       
-  firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.56.1" port port="22" protocol="tcp"  accept   '      
+firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.56.1" port port="22" protocol="tcp"  accept   '      
 
     
 --------------------

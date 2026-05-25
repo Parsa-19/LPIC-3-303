@@ -2,6 +2,7 @@ cd /etc/httpd && mkdir ssl ; cd ssl
 
 openssl genrsa -out private.key 2048
 openssl rsa -text -in private.key -noout  # view decoded private key
+
 openssl rsa -in private.key -pubout -out public.key
 openssl req -new -key private.key -out request.csr
 openssl req -text -in request.csr -noout -verify
@@ -112,12 +113,27 @@ nmap -p- 192.168.3.27
 nmap -sT -p 22 192.168.3.27  # full scan, syn, syn/ack, ack
 nmap -sS -p 22 192.168.3.27  # stealth scan, syn scan
 nmap -sU -p 22 192.168.3.27  # udp scan
-nmap -sP 192.168.3.0/24      # ping and detect live IPs
+nmap -sP 192.168.3.0/24      # ping and detect live IPs(live host detection)
 
 nmap -Pn 192.168.3.27        # scan port without pinging host
 nmap -sT -p 22 -sV 192.168.3.17	  # full scan + show the version of service
 
 nmap -O 192.168.3.27         # guess for OS version
+
+# -A performs four scans: 
+# -O os detection
+# -sV version detection, 
+# -sC runs predefined default set of nse scripts to detect vulnerabilities
+# --tracerout which tracks the network path
+namp -A 192.168.3.27
+# but it has some disadvantages like: 
+# being noisy(traffic being generated could be flagged by a IDS or firewall) 
+# slow and needs root access
+
+# use -T to set the timing from benig slow to Insane and aggressive scans:
+# -T0 -T1 -T2 -T3 -T4 -T5
+# this is the order of slow scan(hard for IDS or firewall to detect) to fast scans(noisy but fast) 
+nmap -p- -Pn -T5 192.168.55.103   # scan all ports, do not ping, do it fast and noisy
 
 
 systemctl stop firewalld
@@ -128,6 +144,12 @@ iptables -I INPUT -p tcp -m iprange --src-range 10.0.0.5-10.0.0.15 -j DROP
 iptables -I INPUT -p tcp -m connlimit --connlimit-above 4 --dport 22 -j DROP
 iptables -A INPUT -p tcp --dport 23 -m state --state NEW,ESTABLISHED -j ACCEPT
 
+# ways to check the specific port on another vm
+nmap -Pn -sT -T5 -p 80 192.168.55.103
+telnet 192.168.55.103 80
+nc -zv 192.168.55.103 80
+curl 192.168.55.103:80
+
 iptables -F
 iptables -A INPUT -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
 iptables -A OUTPUT -p tcp --sport 22 -m state --state ESTABLISHED,RELATED -j ACCEPT
@@ -136,8 +158,23 @@ iptables -P OUTPUT DROP
 iptables -P FORWARD DROP
 
 iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW -m recent --set
-iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW -m recent --set -m recent --update --second 60 --hitcount 10 -j DROP
+# this will track each tcp connection on port 22 and it is new(syn-->) then set a recent module on it. it means it certificates
+# /proc/net/xt_recent/DEFAULT file and track each new connection by now
+
+iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW -m recent --update --second 60 --hitcount 10 -j DROP
 
 iptables -A OUTPUT -d anisa.co.ir -p tcp --dport 443 -j DROP   
 iptables -A OUTPUT -p tcp -m string --string anisa.co.ir --algo kmp -j DROP        
 
+# save and restore rules
+iptables-save > /etc/sysconfig/iptables-rules
+iptables -F
+iptables-restore < /etc/sysconfig/iptables-rules
+
+# delete a rule
+iptables -nvL --line-numbers
+iptables -t filter -D INPUT 2   # remove the second rule in INPUT chain
+
+# allow loopback connections
+iptables -A INPUT -i lo -j ACCEPT 
+iptables -A OUTPUT -o lo -j ACCEPT
