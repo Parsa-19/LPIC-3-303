@@ -8,16 +8,22 @@ firewall-cmd  --zone=public --add-interface=enp0s3 --permanent
 
 firewall-cmd  --zone=public --add-interface=enp0s8 --permanent
 
+firewall-cmd  --zone=public --remove-interface=enp0s8 --permanent
+firewall-cmd  --zone=drop --add-interface=enp0s8 --permanent
+
 firewall-cmd --reload
 
-firewall-cmd  --zone=drop  --change-interface=enp0s3
+firewall-cmd  --zone=drop  --change-interface=enp0s3 --permanent
   
-firewall-cmd  --set-default-zone=drop        
+firewall-cmd  --set-default-zone=drop        # you dont do --permanent on this command       
 
-firewall-cmd  --get-zones        
+firewall-cmd --get-services
+    
+/usr/lib/firewalld
+/etc/firewalld
 
-        
-askari.xml:
+zone:
+askari.xml
 <?xml version="1.0" encoding="utf-8"?>
 <zone>
   <short>Askari</short>

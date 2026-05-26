@@ -1,0 +1,7 @@
+nm-shared
+cockpit --> able of video record
+
+PAM(priviliage access manager) it does AAA and can do 2FA(2 factor authentication)
+user --> PAM --> Private-Network
+
+less /etc/protocols (routing protocols)

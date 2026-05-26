@@ -9,13 +9,11 @@ baner grabing
 search engines like shodan,censys,zoomeye,binaryedge
 shadow server
 
-
-nmap -T 1 2 3 4
 how to detect port scan with iptables (they dont do it with iptables in real world but you just try to detect it)
 sni (domain is readable in packet even data is encrypted)
 
 
-
+---------------
 
 how to convert the generated ssl certificate(and also the private key) created by open ssl form
 PEM to DER and
@@ -27,3 +25,4 @@ nse files (for nmap scan)
 allow ftp in iptables (lab scenario explained in server slides)
 
 nmap -A
+nmap -T 1 2 3 4
