@@ -48,13 +48,11 @@ zzz.xml
 
  
 firewall-cmd  --zone=public --add-service=http 
-
 firewall-cmd  --zone=public --remove-service=http     
         
-
 firewall-cmd  --add-port=1723/udp
-
 firewall-cmd  --remove-port=1723/udp        
+
 
 firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.58.1"  drop '
 
@@ -69,26 +67,46 @@ firewall-cmd  --add-rich-rule='rule priority="10" family="ipv4" source address="
         
 
 firewall-cmd  --set-default-zone=drop
-
-
 firewall-cmd  --zone=drop --change-interface=enp0s3
-
-
 firewall-cmd  --zone=drop --change-interface=enp0s8  
-      
 firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.56.1" port port="22" protocol="tcp"  accept   '      
 
-    
 --------------------
-setfacl -m  u:hacker:rwx  a.txt
 
-getfacl  a.txt
+
+ls -l a.txt
+setfacl -m u:hacker:rwx a.txt
+getfacl a.txt
+setfacl -m u:hacker:--x a.txt  # over write the last acl set
+setfacl -x u:hacker a.txt
+setfacl -b a.txt  # also removes the mask
+
+
+execution permission depends on type of the file.
+if the file is binary it is already compiled and doesnt need to be read and you only need to execute. 
+thus binary files could be executed only by --x permission.
+but bash scripts or python have Interpreter to exeute. they READ file and interprete it to machine code and then executes them.
+thus these script files need r-x permission to be executed.  
+
+
+lsattr a.txt
+
+chattr +a a.txt  # its only appendable now
+echo "new content" >> a.txt  # permitted
+echo "NEW stuff" > a.txt  # not permitted
+rm -rf a.txt  # not permitted 
+chattr -a a.txt  # operations permitted now
+
+chattr +i a.txt # immutable
+chattr -i a.txt
 
     
 ----> getenforce 
 
-[root@vbox 13:40:24 ~]
 ----> setenforce permissive | 0  
 
-[root@vbox 13:42:23 ~]
-----> setenforce  enforcing | 1       
+----> setenforce  enforcing | 1
+
+sestatus 
+
+/etc/selinux/config

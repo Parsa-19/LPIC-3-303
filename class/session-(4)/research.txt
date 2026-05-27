@@ -5,3 +5,16 @@ PAM(priviliage access manager) it does AAA and can do 2FA(2 factor authenticatio
 user --> PAM --> Private-Network
 
 less /etc/protocols (routing protocols)
+
+DAC, MAC
+
+systemcall, vsyscall, vdso, user space, kernel space
+
+strace(track syscalls), lttrace, ptrace
+learn the systemcalls shown by strace ls command for example
+
+glibc
+
+cat, bat
+
+dirty call

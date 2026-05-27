@@ -28,7 +28,7 @@ return 0;
 
 
 grep -i stackprotector /boot/config-4.18.0-425.10.1.el8_7.x86_64    
-        
+
 
    44  cat /proc/cpuinfo | grep -i nx
    45  dmesg | grep -i nx
