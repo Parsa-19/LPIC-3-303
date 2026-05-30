@@ -1,7 +1,7 @@
 ja3
 ja3s
 
-./testssl.sh
+
 what is FS in security
 nftables -> video clip
 IDLE Scan
@@ -26,3 +26,5 @@ allow ftp in iptables (lab scenario explained in server slides)
 
 nmap -A
 nmap -T 1 2 3 4
+
+./testssl.sh

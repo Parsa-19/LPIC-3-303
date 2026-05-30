@@ -1,0 +1,55 @@
+seinfo --user
+seinfo --role
+seinfo --type
+
+useradd -Z guest_u    john
+
+   55  semanage boolean -l | grep http
+   56  semanage boolean -l | grep httpd_can_network_connect_db
+   57  getsebool -a | nl
+   58  getsebool httpd_can_network_connect_db
+   59  setsebool httpd_can_network_connect_db on
+   60  getsebool httpd_can_network_connect_db
+   61  semanage boolean -l | grep httpd_can_network_connect_db
+   62  setsebool -P httpd_can_network_connect_db on
+   63  semanage boolean -l | grep httpd_can_network_connect_db
+
+
+setsebool secure_mode_policyload on
+    
+ chcon -u staff_u   -r  staff_r -t ssh_home_t a.txt
+ 
+        
+
+chcon -t ssh_home_t anaconda-ks.cfg 
+   45  ls -lZ anaconda-ks.cfg 
+   46  restorecon -v anaconda-ks.cfg 
+   47  ls -lZ anaconda-ks.cfg 
+   48  chcon -t ssh_home_t anaconda-ks.cfg 
+   49  ls -lZ anaconda-ks.cfg 
+   50  restorecon -n -v anaconda-ks.cfg 
+   51  ls -lZ anaconda-ks.cfg 
+        
+
+  cd /etc/selinux/targeted/contexts/files/
+        
+semanage fcontext -l
+    
+  semanage fcontext -a -t ssh_home_t  /etc/z.txt  
+        
+
+   vim file_contexts.local     
+
+ restorecon -v /etc/z.txt       
+
+semanage fcontext -d -t ssh_home_t  /etc/z.txt    
+    
+        
+sealert -a  /var/log/audit/audit.log
+        
+ semanage permissive -a httpd_t 
+semanage permissive -d httpd_t        
+
+semanage port -a 18000 -p tcp -t http_port_t    
+    
+semanage port -l | grep http  
