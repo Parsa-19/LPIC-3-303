@@ -15,6 +15,14 @@ learn the systemcalls shown by strace ls command for example
 
 glibc
 
+dirty call
+
 cat, bat
 
-dirty call
+forensic:
+step-1: teriage(information gathering) e.g. --> netstat -antp > tcp.txt, mount > mount.txt
+mitigation 
+
+setfacl -d ?
+
+auditd on a command to alert

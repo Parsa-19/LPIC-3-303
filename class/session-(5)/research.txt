@@ -1,0 +1,3 @@
+getsebool -a | grep secure_mode_insmod
+getsebool -a | grep deny_ptrace
+
