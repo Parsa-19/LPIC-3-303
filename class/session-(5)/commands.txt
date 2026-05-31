@@ -1,0 +1,37 @@
+restorecon
+
+ausearch
+
+
+
+
+seinfo --user
+seinfo --type
+seinfo --role
+
+ls -lZ /etc/file
+
+getenforce
+setenfore 0 | 1
+
+/etc/selinux/config
+/etc/sysconfig/selinux
+
+sestatus
+
+semanage login -l
+semanage login -a -s user_u james
+semanage login  -d james
+semanage boolean -l
+
+getsebool -a
+getsebool httpd_can_network_connect_db
+
+setsebool httpd_can_network_connect_db on     # temp
+setsebool -P httpd_can_network_connect_db on  # permanently
+semanage boolean -l | grep -i "httpd_can_network_connect_db"  # verify
+
+chcon -t ssh_home_t file
+chcon -R -t ssh_home_t dir
+
+restorecon -v file
