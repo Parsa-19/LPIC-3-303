@@ -1,3 +1,8 @@
 getsebool -a | grep secure_mode_insmod
 getsebool -a | grep deny_ptrace
 
+secure_mode_insmod (insert module in kernel)
+
+memfd_create (syscall to be monitored)
+ptrace
+process injection - process binding 

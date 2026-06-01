@@ -1,10 +1,3 @@
-restorecon
-
-ausearch
-
-
-
-
 seinfo --user
 seinfo --type
 seinfo --role
@@ -24,6 +17,8 @@ semanage login -a -s user_u james
 semanage login  -d james
 semanage boolean -l
 
+useradd -Z guest_u john
+
 getsebool -a
 getsebool httpd_can_network_connect_db
 
@@ -31,7 +26,42 @@ setsebool httpd_can_network_connect_db on     # temp
 setsebool -P httpd_can_network_connect_db on  # permanently
 semanage boolean -l | grep -i "httpd_can_network_connect_db"  # verify
 
+setsebool secure_mode_policyload on  # doesnt let you to change anything about selinux (you need to reboot system to turn this off)
+
 chcon -t ssh_home_t file
 chcon -R -t ssh_home_t dir
+chcon -u staff_u -r staff_r -t ssh_home_t file
 
 restorecon -v file
+restorecon -n -v file
+restorecon -v -F file
+
+note:
+in targeted mode;
+when you change the Type and also SELinux_user and SELinux_role of a file you cant
+restorecon the file again normally because restorecon restores only the type, not the 
+user or role. for restoreing that it needs -F switch to force that.
+
+/etc/selinux/targeted/contexts/files/file_context 
+
+semanage fcontext -l
+
+semanage fcontext -a -t ssh_home_t /etc/file # this will add the context for /etc/file in /etc/selinux/targeted/contexts/files/file_contexts.local
+# you can also confirm it by:
+semanage fcontext -l | grep /etc/file
+
+# but the file currently doesnt have this context you set. to apply the new context on file do:
+restorecon -v /etc/file
+# this will read and set the new context from /etc/selinux/targeted/contexts/files
+
+# you can re-assign the context by -m (modify) and then restorecon -v /etc/file to take effect
+semanage fcontext -m -t admin_home_t /etc/file
+restorecon -v /etc/file
+
+# to remove the context from the file (the default context will be replace)
+semanage fcontext -d -t admin_home_t /etc/file
+restorecon -v /etc/file
+
+
+ausearch
+
