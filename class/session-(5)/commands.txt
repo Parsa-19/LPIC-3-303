@@ -42,11 +42,13 @@ when you change the Type and also SELinux_user and SELinux_role of a file you ca
 restorecon the file again normally because restorecon restores only the type, not the 
 user or role. for restoreing that it needs -F switch to force that.
 
-/etc/selinux/targeted/contexts/files/file_context 
+/etc/selinux/targeted/contexts/files/file_context  # all files and dirs assigned with a selinux context
 
 semanage fcontext -l
 
-semanage fcontext -a -t ssh_home_t /etc/file # this will add the context for /etc/file in /etc/selinux/targeted/contexts/files/file_contexts.local
+# this will add the context for /etc/file in /etc/selinux/targeted/contexts/files/file_contexts.local
+semanage fcontext -a -t ssh_home_t /etc/file
+note that the path to file has to be absolute durring the defining the context for the first time
 # you can also confirm it by:
 semanage fcontext -l | grep /etc/file
 
@@ -59,7 +61,7 @@ semanage fcontext -m -t admin_home_t /etc/file
 restorecon -v /etc/file
 
 # to remove the context from the file (the default context will be replace)
-semanage fcontext -d -t admin_home_t /etc/file
+semanage fcontext -d /etc/file
 restorecon -v /etc/file
 
 
