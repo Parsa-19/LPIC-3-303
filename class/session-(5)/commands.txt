@@ -64,6 +64,51 @@ restorecon -v /etc/file
 semanage fcontext -d /etc/file
 restorecon -v /etc/file
 
+# add selinux label to a dir and verything underneath e.g /web dir
+semanage fcontext -a -t httpd_sys_content_t "/web(/.*)?"
+restorecon -Rv /web
 
-ausearch
 
+--------
+# configure httpd to server content from each user's home directory
+nano /etc/httpd/conf.d/userdir.conf
+mkdir /home/john/public_html && echo "hi there" > /home/john/public_html/index.html 
+
+# define DAC permissions
+chmod 700 /home/john
+setfacl -m u:apache:x /home/john
+
+chmod 744 /home/john/public_html
+setfacl -m u:apache:x /home/john/public_html
+
+chmod 644 /home/john/public_html/index.html
+
+# mac permissions
+# mac permissions are already set due to the difined directories in this file:
+/etc/selinux/targeted/context/files/files_context
+
+# selinux booleans
+# httpd_enable_homedirs is the boolean you would set
+setboolean -P httpd_enable_homedirs on 
+--------
+
+# Selinux log files are stored as Access Vector Cache (AVC) type in :
+nano /var/log/audit/audit.log
+
+ausearch -m acv
+
+sealert -a /var/log/audit/audit.log
+
+audit -c 'httpd' --raw 
+
+ausearch -c 'httpd' --raw | audit2allow -M my-httpd
+# gives you two files: my-httpd.te and my-httpd.pp
+semodule -X 300 -i my-httpd.pp
+
+semanage permissive -a httpd_t
+semanage permissive -d httpd_t
+semanage permissive -l
+
+semanage port -l
+semanage port -a -t http_port_t -p tcp 8008
+semanage port -d -p tcp 8888

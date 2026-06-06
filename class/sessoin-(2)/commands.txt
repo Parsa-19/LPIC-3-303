@@ -77,7 +77,7 @@ mount /dev/mapper/secret /secret
 
 umount /dev/mapper/secret
 
-cryptsetup luksClose /dev/sdb1
+cryptsetup luksClose /dev/mapper/secret
 
 vim /etc/crypttab
 ```
