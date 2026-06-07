@@ -17,6 +17,7 @@ openssl req -new \
 -out request.csr \
 -subj "/C=US/ST=Utah/L=Lehi/O=Your Company, Inc./OU=IT/CN=yourdomain.com"
 
+# procedure one more time
 openssl genrsa 2048 > private.key
 openssl rsa -in private.key -pubout > public.key
 openssl req -new -key private.key > request.csr
@@ -33,6 +34,11 @@ openssl x509 -in request.csr -out certificate.crt -req -signkey private.key -day
 openssl x509 -text -in certificate.crt -noout  # get info of the certificate
 openssl x509 -pubkey -in certificate.crt -noout  # get pubkey within certificate(this is always the exact public key you created in your vm at first)
 
+# create both private key and selfsigned.crt in one command (nginx case for example)
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
+
+
+# implement apache in rocky scenario:
 vim /etc/httpd/conf.d/ssl.conf
 ```
 SSLCertificateFile /etc/httpd/ssl/certificate.crt
@@ -40,7 +46,7 @@ SSLCertificateFile /etc/httpd/ssl/certificate.crt
 SSLCertificateKeyFile /etc/httpd/ssl/private.key
 ```
 
-# or you can even configure the ssl in your apache virtual host like:
+# configure ssl in apache virtual host :
 ```
 <VirtualHost *:443>
         ServerName 192.168.55.103
