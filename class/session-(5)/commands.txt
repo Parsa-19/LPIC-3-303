@@ -14,7 +14,7 @@ sestatus
 
 semanage login -l
 semanage login -a -s user_u james
-semanage login  -d james
+semanage login -d james
 semanage boolean -l
 
 useradd -Z guest_u john
@@ -36,10 +36,10 @@ restorecon -v file
 restorecon -n -v file
 restorecon -v -F file
 
-note:
+NOTE:
 in targeted mode;
 when you change the Type and also SELinux_user and SELinux_role of a file you cant
-restorecon the file again normally because restorecon restores only the type, not the 
+restorecon the file back again normally; because restorecon restores only the type, not the 
 user or role. for restoreing that it needs -F switch to force that.
 
 /etc/selinux/targeted/contexts/files/file_context  # all files and dirs assigned with a selinux context
@@ -64,7 +64,7 @@ restorecon -v /etc/file
 semanage fcontext -d /etc/file
 restorecon -v /etc/file
 
-# add selinux label to a dir and verything underneath e.g /web dir
+# add selinux label to a dir and everything underneath e.g /web dir
 semanage fcontext -a -t httpd_sys_content_t "/web(/.*)?"
 restorecon -Rv /web
 
@@ -112,3 +112,20 @@ semanage permissive -l
 semanage port -l
 semanage port -a -t http_port_t -p tcp 8008
 semanage port -d -p tcp 8888
+
+
+# you can set and see selinux permissions for files/dirs, programs/processes, users, ports
+
+# files
+ls -lZ file
+
+# processes
+ps auxZ
+
+# current user
+id -Z
+# mapped users
+semanage login -l
+
+# ports
+semanage port -l

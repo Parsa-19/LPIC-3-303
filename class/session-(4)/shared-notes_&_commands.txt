@@ -110,4 +110,4 @@ chattr -i a.txt
 sestatus 
 
 /etc/selinux/config
-/etc/sysconfig/selinux  # soft link from the above dirt
+/etc/sysconfig/selinux  # soft link from /etc/selinux/config

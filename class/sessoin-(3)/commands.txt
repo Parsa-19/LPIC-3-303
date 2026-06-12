@@ -116,8 +116,8 @@ nmap -p 22 192.168.3.27
 nmap -p 22-1024 192.168.3.27
 nmap -p- 192.168.3.27
 
-nmap -sT -p 22 192.168.3.27  # full scan, syn, syn/ack, ack
-nmap -sS -p 22 192.168.3.27  # stealth scan, syn scan
+nmap -sT -p 22 192.168.3.27  # full scan, syn -> syn/ack -> ack
+nmap -sS -p 22 192.168.3.27  # stealth scan / syn scan
 nmap -sU -p 22 192.168.3.27  # udp scan
 nmap -sP 192.168.3.0/24      # ping and detect live IPs(live host detection)
 
@@ -148,7 +148,7 @@ iptables -nvL
 iptables -I INPUT -p tcp -m multiport --dport 23,25,110 -j DROP
 iptables -I INPUT -p tcp -m iprange --src-range 10.0.0.5-10.0.0.15 -j DROP
 iptables -I INPUT -p tcp -m connlimit --connlimit-above 4 --dport 22 -j DROP
-iptables -A INPUT -p tcp --dport 23 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT -p tcp dport 23 -m state --state NEW,ESTABLISHED -j ACCEPT
 
 # ways to check the specific port on another vm
 nmap -Pn -sT -T5 -p 80 192.168.55.103
