@@ -1,0 +1,38 @@
+
+msf6 auxiliary(scanner/ssh/ssh_login) > set pass_file /root/pass.txt
+
+
+msf6 auxiliary(scanner/ssh/ssh_login) > set rhosts 127.0.0.1 
+
+
+msf6 auxiliary(scanner/ssh/ssh_login) > set stop_on_success true
+
+
+msf6 auxiliary(scanner/ssh/ssh_login) > set user_file /root/user.txt
+
+
+msf6 auxiliary(scanner/ssh/ssh_login) > set verbose true
+
+ssh-keygen -lvf /root/.ssh/id_rsa.pub
+
+nmap --script ssh2-enum-algos   -sV -p 22 127.0.0.1
+
+/etc/crypto-policies/back-ends/opensshserver.config
+
+AllowUsers  hacker root
+
+TMOUT=20
+readonly TMOUT
+export TMOUT
+
+
+[sshd]
+enabled = true
+port = 22
+banaction = iptables-multiport
+maxretry = 5
+bantime = 600
+
+
+fail2ban-client banned
+fail2ban-client unban 192.168.56.1
