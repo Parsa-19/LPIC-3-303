@@ -4,7 +4,7 @@
   sysctl  vm.swappiness
   sysctl -w vm.swappiness=20 >> /etc/sysctl.d/askari.conf
   
-   sysctl -p /etc/sysctl.d/askari.conf
+  sysctl -p /etc/sysctl.d/askari.conf
    
 
  

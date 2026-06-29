@@ -170,18 +170,79 @@ sysctl -w net.ipv4.ipfrag_high_thresh=3200000
 
 ## 11. **net.ipv4.tcp_max_syn_backlog**
 <img src="syn_backlog.png" alt="" style="display: inline-block; height: auto; width: auto; vertical-align: text-bottom;"/>
+according to the picture after the client sent SYN request and the server recieve it, the SYN will stay in **SYN queue** till the tcp handshake is complete and the connection is stablished. then the request is moved from **SYN queue** to the **Accept queue**. <br>
+tcp_max_syn_backlog is determining the value of number of requests in **SYN queue**. <br>
 
+> [!NOTICE]
+> when you see the value of `sysctl net.ipv4 tcp_max_syn_backlog` .e.g. `128` it means that it only accpets 128 syn requests per one port. each port has the syn queue up to 128 syn requests to be filled.
 
-## 12. **net.ipv4. **
+SYN queue is also called syn backlog too.
 
-## 13. **net.ipv4. **
+how to use:
+```
+sysctl -w net.ipv4.tcp_max_syn_backlog=8192
+```
 
-## 14. **net.ipv4. **
+## 12. **net.ipv4.somaxconn**
+this determines the number of stablished connections in accpet queue in the privouse image. <br> 
+for high load 
 
-## 15. **net.ipv4. **
+how to use:
+```
+sysctl -w net.core.somaxconn=65535
+```
+good practice:
+```
+cat > /etc/sysctl.d/99-tcp-backlog.conf << 'EOF'
+net.core.somaxconn = 65535
+net.ipv4.tcp_max_syn_backlog = 65535
+net.ipv4.tcp_syncookies = 1
+EOF
+```
 
-## 16. **net.ipv4. **
+## 13. **net.ipv4.tcp_synack_retries**
+number of responding to syn connection request.
+if this parameter sets to for example 5. it means that if a syn request comes but never ack the connection it responds to the syn request 5 times and tries to stablish the connection.<br>
+so if this is a syn flood attack it responds 5000.
 
-## 17. **net.ipv4. **
+value determines the number of retries.
 
-## 18. **net.ipv4. **
+how to use:
+```
+sysctl -w net.ipv4.tcp_synack_retries=3
+```
+
+## 14. **net.ipv4.tcp_keepalive_time**
+after the data transmisson is done between client and server, keep the connection open for a certain amount of time which this parameter determines to make things faster.
+causes not to repeat the tcp handshake and establish the connecition, for short period of time.
+
+value determines the time in sec.
+
+how to use:
+```
+sysctl -w net.ipv4.tcp_keepalive_time=3600
+```
+
+## 15. **net.ipv4.tcp_keepalive_probes**
+its related to the above parameter.<br>
+it determines the number of probs (the request back to client) that want to see if the client wants to transmit data again or willing to keep the connection open.<br>
+these probs are sent after the time of tcp_keepalive_time is finished.<br>
+if all the probs are sent and no asnwer comes from the client, the connection is concidered as a dead connection. 
+
+value number of probes to send.
+
+how to use:
+```
+sysctl -w net.ipv4.tcp_keepalive_probes=5
+```
+
+## 16. **net.ipv4.tcp_keepalive_intvl**
+also related to the to parameters above.<br>
+determines the period between each prob.
+
+value of it is in seconds.
+
+how to use:
+```
+sysctl net.ipv4.tcp_keepalive_intvl=30
+```
