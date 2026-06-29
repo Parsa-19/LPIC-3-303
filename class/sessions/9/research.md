@@ -30,3 +30,16 @@ tune ring buffer -> overwrite kernel ring buffer with a loop to delete footprint
 sysctl explorer 
 
 kexec
+
+EDR agent
+
+martian address
+
+https://capec.mitre.org/data/definitions/495.html
+
+
+# requiered researches
+### **kernel.printk_ratelimit** / **kernel.printk_ratelimit_burst** -> to mitigate or preventing for overwriting kernel ring buffer logs
+### **SAK and SAS**
+### ****
+### ** **
