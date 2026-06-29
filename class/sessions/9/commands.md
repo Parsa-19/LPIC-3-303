@@ -169,7 +169,7 @@ sysctl -w net.ipv4.ipfrag_high_thresh=3200000
 ```
 
 ## 11. **net.ipv4.tcp_max_syn_backlog**
-<img src="syn_backlog.png" alt="" style="display: inline-block; height: 1.25rem; width: auto; vertical-align: text-bottom; margin: 0 0.25rem;"/>
+<img src="syn_backlog.png" alt="" style="display: inline-block; height: auto; width: auto; vertical-align: text-bottom;"/>
 
 
 ## 12. **net.ipv4. **
