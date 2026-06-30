@@ -37,6 +37,7 @@ martian address
 
 https://capec.mitre.org/data/definitions/495.html
 
+kernel.modules_disabled prevents root kit modules
 
 # requiered researches
 
@@ -52,5 +53,4 @@ https://capec.mitre.org/data/definitions/495.html
 
 ### bpf and ebpf (youtube video) kernel.unprivileged_bpf_disabled
 
-### kernel.modules_disabled mirigates root kit modules
 
