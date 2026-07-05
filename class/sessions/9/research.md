@@ -41,16 +41,15 @@ kernel.modules_disabled prevents root kit modules
 
 # requiered researches
 
-### **kernel.printk_ratelimit** / **kernel.printk_ratelimit_burst** -> to mitigate or preventing from overwriting kernel ring buffer logs
+### kernel.printk_ratelimit / kernel.printk_ratelimit_burst -> to mitigate or preventing from overwriting kernel ring buffer logs
 
-### **SAK and SAS**
+### SAK and SAS
 
-### **net.core.somaxconn**  --> the maximum number of stabished connections
+### net.core.somaxconn  --> the maximum number of stabished connections
 
-### **KARL**
+### KARL
 
 ### kernel.yama.ptrace_scope
 
 ### bpf and ebpf (youtube video) kernel.unprivileged_bpf_disabled
-
 
