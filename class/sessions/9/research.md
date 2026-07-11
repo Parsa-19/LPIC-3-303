@@ -52,4 +52,3 @@ kernel.modules_disabled prevents root kit modules
 ### kernel.yama.ptrace_scope
 
 ### bpf and ebpf (youtube video) kernel.unprivileged_bpf_disabled
-
