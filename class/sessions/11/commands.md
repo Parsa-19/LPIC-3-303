@@ -53,6 +53,8 @@ ausyscall --dump
 auditctl -a always,exit -F arch=b64 -F path=/bin/su -F perm=x -F "auid>=1000" -F "auid!=4294967295" -k su_execute
 auditctl -a always,exit -F arch=b64 -S execve -F auid=1000 -F key=suspic_user
 auditctl -a always,exit -F arch=b64 -S ptrace -k proc_inject
+> [!NOTE]
+> you can use this command `grep -R "UINT_MAX" /usr/include/limits.h` to find the unsigned ID `4294967295` everytime.
 
 # persist the rules
 auditctl -l >> /etc/audit/rules.d/custom.rules 
