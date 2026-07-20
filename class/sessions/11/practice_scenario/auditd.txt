@@ -1,0 +1,347 @@
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:07:47.676:115) : pid=1774 uid=root auid=root ses=3 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1779 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:39.934:116) : pid=1886 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1886 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:39.934:117) : pid=1886 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1886 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:39.934:118) : pid=1886 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1886 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:39.935:119) : pid=1885 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-server cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1886 suid=sshd rport=41337 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:39.935:120) : pid=1885 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-client cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1886 suid=sshd rport=41337 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=USER_AUTH msg=audit(08/23/2024 23:10:39.993:121) : pid=1885 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct=john exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:43.279:122) : pid=1885 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=session fp=? direction=both spid=1886 suid=sshd rport=41337 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:43.279:123) : pid=1885 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1886 suid=sshd  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:43.280:124) : pid=1885 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1885 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:43.280:125) : pid=1885 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1885 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:43.280:126) : pid=1885 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1885 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:10:43.280:127) : pid=1885 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=(unknown) exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:43.346:128) : pid=1888 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1888 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:43.346:129) : pid=1888 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1888 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:43.346:130) : pid=1888 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1888 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:43.348:131) : pid=1887 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-server cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1888 suid=sshd rport=41679 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:43.348:132) : pid=1887 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-client cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1888 suid=sshd rport=41679 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=USER_AUTH msg=audit(08/23/2024 23:10:43.447:133) : pid=1887 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct=john exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:46.732:134) : pid=1887 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=session fp=? direction=both spid=1888 suid=sshd rport=41679 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:46.732:135) : pid=1887 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1888 suid=sshd  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:46.733:136) : pid=1887 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1887 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:46.733:137) : pid=1887 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1887 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:46.733:138) : pid=1887 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1887 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:10:46.733:139) : pid=1887 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=(unknown) exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:46.747:140) : pid=1890 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1890 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:46.747:141) : pid=1890 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1890 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:46.747:142) : pid=1890 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1890 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:46.748:143) : pid=1889 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-server cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1890 suid=sshd rport=42163 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:46.748:144) : pid=1889 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-client cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1890 suid=sshd rport=42163 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=USER_AUTH msg=audit(08/23/2024 23:10:46.808:145) : pid=1889 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct=john exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:50.091:146) : pid=1889 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=session fp=? direction=both spid=1890 suid=sshd rport=42163 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:50.091:147) : pid=1889 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1890 suid=sshd  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:50.092:148) : pid=1889 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1889 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:50.092:149) : pid=1889 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1889 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:50.092:150) : pid=1889 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1889 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:10:50.092:151) : pid=1889 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=(unknown) exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:50.103:152) : pid=1892 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1892 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:50.104:153) : pid=1892 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1892 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:50.104:154) : pid=1892 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1892 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:50.104:155) : pid=1891 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-server cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1892 suid=sshd rport=39983 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:50.105:156) : pid=1891 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-client cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1892 suid=sshd rport=39983 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=USER_AUTH msg=audit(08/23/2024 23:10:50.166:157) : pid=1891 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct=sara exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:52.530:158) : pid=1891 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=session fp=? direction=both spid=1892 suid=sshd rport=39983 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:52.530:159) : pid=1891 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1892 suid=sshd  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:52.531:160) : pid=1891 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1891 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:52.531:161) : pid=1891 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1891 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:52.531:162) : pid=1891 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1891 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:10:52.531:163) : pid=1891 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=(unknown) exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:52.543:164) : pid=1914 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1914 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:52.543:165) : pid=1914 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1914 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:52.543:166) : pid=1914 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1914 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:52.543:167) : pid=1913 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-server cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1914 suid=sshd rport=43547 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:52.543:168) : pid=1913 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-client cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1914 suid=sshd rport=43547 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=USER_AUTH msg=audit(08/23/2024 23:10:52.612:169) : pid=1913 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct=sara exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:57.341:170) : pid=1913 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=session fp=? direction=both spid=1914 suid=sshd rport=43547 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:57.341:171) : pid=1913 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1914 suid=sshd  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:57.341:172) : pid=1913 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1913 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:57.341:173) : pid=1913 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1913 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:57.341:174) : pid=1913 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1913 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:10:57.341:175) : pid=1913 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=(unknown) exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:57.353:176) : pid=1921 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1921 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:57.354:177) : pid=1921 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1921 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:57.354:178) : pid=1921 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1921 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:57.354:179) : pid=1920 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-server cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1921 suid=sshd rport=33407 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:57.354:180) : pid=1920 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-client cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1921 suid=sshd rport=33407 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=USER_AUTH msg=audit(08/23/2024 23:10:57.478:181) : pid=1920 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct=sara exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:59.840:182) : pid=1920 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=session fp=? direction=both spid=1921 suid=sshd rport=33407 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:59.840:183) : pid=1920 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1921 suid=sshd  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:59.842:184) : pid=1920 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1920 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:59.842:185) : pid=1920 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1920 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:59.842:186) : pid=1920 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1920 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:10:59.842:187) : pid=1920 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=(unknown) exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:59.853:188) : pid=1923 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1923 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:59.853:189) : pid=1923 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1923 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:10:59.853:190) : pid=1923 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1923 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:59.853:191) : pid=1922 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-server cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1923 suid=sshd rport=40301 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:10:59.853:192) : pid=1922 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-client cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1923 suid=sshd rport=40301 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=USER_AUTH msg=audit(08/23/2024 23:10:59.915:193) : pid=1922 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct=reza exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:02.086:194) : pid=1922 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=session fp=? direction=both spid=1923 suid=sshd rport=40301 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:02.086:195) : pid=1922 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1923 suid=sshd  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:02.086:196) : pid=1922 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1922 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:02.086:197) : pid=1922 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1922 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:02.086:198) : pid=1922 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1922 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:11:02.086:199) : pid=1922 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=(unknown) exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:02.098:200) : pid=1925 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1925 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:02.098:201) : pid=1925 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1925 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:02.098:202) : pid=1925 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1925 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:11:02.099:203) : pid=1924 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-server cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1925 suid=sshd rport=45289 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:11:02.099:204) : pid=1924 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-client cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1925 suid=sshd rport=45289 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=USER_AUTH msg=audit(08/23/2024 23:11:02.158:205) : pid=1924 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct=reza exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:06.502:206) : pid=1924 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=session fp=? direction=both spid=1925 suid=sshd rport=45289 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:06.502:207) : pid=1924 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1925 suid=sshd  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:06.503:208) : pid=1924 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1924 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:06.503:209) : pid=1924 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1924 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:06.503:210) : pid=1924 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1924 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:11:06.503:211) : pid=1924 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=(unknown) exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:06.514:212) : pid=1927 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1927 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:06.514:213) : pid=1927 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1927 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:06.514:214) : pid=1927 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1927 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:11:06.515:215) : pid=1926 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-server cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1927 suid=sshd rport=40929 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:11:06.515:216) : pid=1926 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-client cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1927 suid=sshd rport=40929 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=USER_AUTH msg=audit(08/23/2024 23:11:06.572:217) : pid=1926 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct=reza exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:08.750:218) : pid=1926 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=session fp=? direction=both spid=1927 suid=sshd rport=40929 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:08.750:219) : pid=1926 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1927 suid=sshd  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:08.751:220) : pid=1926 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1926 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:08.751:221) : pid=1926 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1926 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:08.751:222) : pid=1926 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1926 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:11:08.751:223) : pid=1926 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=(unknown) exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:08.762:224) : pid=1929 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1929 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:08.763:225) : pid=1929 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1929 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:08.763:226) : pid=1929 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1929 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:11:08.763:227) : pid=1928 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-server cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1929 suid=sshd rport=38725 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:11:08.763:228) : pid=1928 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-client cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1929 suid=sshd rport=38725 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=USER_AUTH msg=audit(08/23/2024 23:11:08.847:229) : pid=1928 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct=root exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:12.567:230) : pid=1928 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=session fp=? direction=both spid=1929 suid=sshd rport=38725 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:12.568:231) : pid=1928 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1929 suid=sshd  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:12.568:232) : pid=1928 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1928 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:12.568:233) : pid=1928 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1928 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:12.568:234) : pid=1928 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1928 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:11:12.568:235) : pid=1928 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:12.580:236) : pid=1932 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1932 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:12.580:237) : pid=1932 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1932 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:12.580:238) : pid=1932 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1932 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:11:12.580:239) : pid=1931 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-server cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1932 suid=sshd rport=43037 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:11:12.580:240) : pid=1931 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-client cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1932 suid=sshd rport=43037 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=USER_AUTH msg=audit(08/23/2024 23:11:12.640:241) : pid=1931 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct=root exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.494:242) : pid=1931 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=session fp=? direction=both spid=1932 suid=sshd rport=43037 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.494:243) : pid=1931 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1932 suid=sshd  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.495:244) : pid=1931 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1931 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.495:245) : pid=1931 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1931 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.495:246) : pid=1931 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1931 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:11:14.495:247) : pid=1931 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=failed' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.507:248) : pid=1935 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1935 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.507:249) : pid=1935 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1935 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.507:250) : pid=1935 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1935 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:11:14.507:251) : pid=1934 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-server cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1935 suid=sshd rport=46641 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRYPTO_SESSION msg=audit(08/23/2024 23:11:14.507:252) : pid=1934 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=start direction=from-client cipher=aes256-ctr ksize=256 mac=hmac-sha2-512-etm@openssh.com pfs=ecdh-sha2-nistp521 spid=1935 suid=sshd rport=46641 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=USER_AUTH msg=audit(08/23/2024 23:11:14.568:253) : pid=1934 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=pam_unix acct=root exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=USER_ACCT msg=audit(08/23/2024 23:11:14.575:254) : pid=1934 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:accounting grantors=pam_unix acct=root exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.575:255) : pid=1934 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=session fp=? direction=both spid=1935 suid=sshd rport=46641 laddr=192.168.56.102 lport=22  exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=? res=success' 
+----
+type=CRED_ACQ msg=audit(08/23/2024 23:11:14.577:256) : pid=1934 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:setcred grantors=pam_unix acct=root exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=LOGIN msg=audit(08/23/2024 23:11:14.577:257) : pid=1934 uid=root subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 old-auid=unset auid=root tty=(none) old-ses=4294967295 ses=4 res=yes 
+----
+type=PROCTITLE msg=audit(08/23/2024 23:11:14.577:257) : proctitle=sshd: root [priv] 
+type=SYSCALL msg=audit(08/23/2024 23:11:14.577:257) : arch=x86_64 syscall=write success=yes exit=1 a0=0x9 a1=0x7ffd937d03c0 a2=0x1 a3=0x0 items=0 ppid=910 pid=1934 auid=root uid=root gid=root euid=root suid=root fsuid=root egid=root sgid=root fsgid=root tty=(none) ses=4 comm=sshd exe=/usr/sbin/sshd subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 key=(null) 
+----
+type=USER_ROLE_CHANGE msg=audit(08/23/2024 23:11:14.578:258) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='pam: default-context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 selected-context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=USER_START msg=audit(08/23/2024 23:11:14.587:259) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:session_open grantors=pam_selinux,pam_loginuid,pam_selinux,pam_namespace,pam_keyinit,pam_keyinit,pam_limits,pam_systemd,pam_unix,pam_umask,pam_lastlog acct=root exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.587:260) : pid=1938 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:72:7f:a2:61:af:9d:6e:7b:6c:39:1e:62:3f:54:77:f2:c2:56:06:f6:57:d8:b9:a5:4d:da:c9:f8:ed:96:cd direction=? spid=1938 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.588:261) : pid=1938 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:93:5f:33:04:91:2d:a1:5b:38:39:80:e5:e4:5b:fd:75:0b:21:e4:69:a1:52:7c:df:2e:c5:c3:8f:fa:48:62:68 direction=? spid=1938 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.588:262) : pid=1938 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1938 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=CRED_ACQ msg=audit(08/23/2024 23:11:14.589:263) : pid=1938 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:setcred grantors=pam_unix acct=root exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:11:14.634:264) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=USER_START msg=audit(08/23/2024 23:11:14.634:265) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.635:266) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1939 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_END msg=audit(08/23/2024 23:11:14.653:267) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=USER_LOGOUT msg=audit(08/23/2024 23:11:14.653:268) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:11:14.700:269) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=USER_START msg=audit(08/23/2024 23:11:14.700:270) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.702:271) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1957 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_END msg=audit(08/23/2024 23:11:14.716:272) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=USER_LOGOUT msg=audit(08/23/2024 23:11:14.716:273) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:11:14.763:274) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=USER_START msg=audit(08/23/2024 23:11:14.763:275) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=CRYPTO_KEY_USER msg=audit(08/23/2024 23:11:14.764:276) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:19:14:e9:7b:81:76:45:3c:c0:88:74:2f:1d:05:be:e7:7a:2d:89:4a:9d:9c:b1:91:da:46:f6:45:94:e7:fd:3d direction=? spid=1975 suid=root  exe=/usr/sbin/sshd hostname=? addr=? terminal=? res=success' 
+----
+type=USER_END msg=audit(08/23/2024 23:11:14.779:277) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=USER_LOGOUT msg=audit(08/23/2024 23:11:14.779:278) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=USER_LOGIN msg=audit(08/23/2024 23:11:14.877:279) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=USER_START msg=audit(08/23/2024 23:11:14.877:280) : pid=1934 uid=root auid=root ses=4 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=root exe=/usr/sbin/sshd hostname=? addr=192.168.56.1 terminal=ssh res=success' 
+----
+type=SOFTWARE_UPDATE msg=audit(08/23/2024 23:17:46.970:298) : pid=27406 uid=root auid=root ses=3 subj=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 msg='op=install sw=nginx-all-modules-1:1.14.1-9.module+el8.4.0+542+81547229.noarch sw_type=rpm key_enforce=0 gpg_res=1 root_dir=/ comm=dnf exe=/usr/libexec/platform-python3.6 hostname=localhost.localdomain addr=? terminal=pts/0 res=success' 
+----
+type=SERVICE_START msg=audit(08/23/2024 23:26:20.555:327) : pid=1 uid=root auid=unset ses=unset subj=system_u:system_r:init_t:s0 msg='unit=nginx comm=systemd exe=/usr/lib/systemd/systemd hostname=? addr=? terminal=? res=success' 
+----
+type=SERVICE_STOP msg=audit(08/24/2024 23:30:25.461:352) : pid=1 uid=root auid=unset ses=unset subj=system_u:system_r:init_t:s0 msg='unit=nginx comm=systemd exe=/usr/lib/systemd/systemd hostname=? addr=? terminal=? res=success' 
+----
+type=SERVICE_START msg=audit(08/24/2024 23:33:44.121:353) : pid=1 uid=root auid=unset ses=unset subj=system_u:system_r:init_t:s0 msg='unit=php-fpm comm=systemd exe=/usr/lib/systemd/systemd hostname=? addr=? terminal=? res=success'
+----
+type=SERVICE_START msg=audit(08/23/2024 23:26:20.555:327) : pid=1 uid=root auid=unset ses=unset subj=system_u:system_r:init_t:s0 msg='unit=nginx comm=systemd exe=/usr/lib/systemd/systemd hostname=? addr=? terminal=? res=success' 
+----
+
