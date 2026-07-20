@@ -42,7 +42,7 @@ auditctl -R /etc/audit/rules.d/audit.rules
 aureport
 aureport -x
 aureport -x --summary
-aureport --start 03/15/2023 00:00:00 --end 02/19/2026 00:00:00
+aureport --start 03/15/2023 00:00:00 --end 02/19/2026 00:00:00 
 aureport --login -i
 aureport --login --summary -i
 
