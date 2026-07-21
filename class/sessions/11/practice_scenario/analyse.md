@@ -3,7 +3,7 @@ i think first the attacker have managed to login in to target server through ssh
 
 then he installed a package using `dnf install nginx-all-modules-1` to be able to use the functionalities of php-fpm for later remote access.
 
-so he tries to find the vulnerable upload.php file in server through nginx requests and also he passes `cmd` arguments with the value of sensetive commands taking advantage of vulnerablity in upload.php file.
+so he tries to find the vulnerable upload.php file in server through sending requests to nginx and also he passes `cmd` arguments with the values of sensetive commands taking advantage of vulnerablity in upload.php file.
 
 resulting in creating backdoor for later access.
 
@@ -14,7 +14,7 @@ first we can understand there were multiple http request on the nginx on server.
 server ip = "192.168.56.102".<br>
 the source IP (attacker) = "192.168.56.1".
 
-as I searched the access.log I could understand the attacker was trying to find a file named something like "upload.php".<br>
+as I searched the access.log and I could understand the attacker was trying to find a file named something like "upload.php".<br>
 the requests that attacker tried on nginx server in order are : /upload.php, /upload1.php, /upload2.php, /upload3.php, /admin/upload.php, /upload_file.php, /upload/upload.php 
 
 the exact log lines extracted from nginx "access.log" that demonstrate attacker's attempts:
@@ -60,7 +60,7 @@ type=USER_AUTH msg=audit(08/23/2024 23:11:08.847:229) : pid=1928 uid=root auid=u
 type=USER_AUTH msg=audit(08/23/2024 23:11:12.640:241) : pid=1931 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct=root exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=failed'
 type=USER_AUTH msg=audit(08/23/2024 23:11:14.568:253) : pid=1934 uid=root auid=unset ses=unset subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=pam_unix acct=root exe=/usr/sbin/sshd hostname=192.168.56.1 addr=192.168.56.1 terminal=ssh res=success'
 ```
-3 users (john, sara, reza) had failed logins but root user is loggined successfully.<br>
+3 users (john, sara, reza) had failed logins but root user could login successfully.<br>
 **perhaps he could try to get remote access through the reverse shell he created earlier by nc command and logged in.**
 
 he ran a software update with dnf on package nemed "nginx-all-modules-1" to be able to install php-fpm:
@@ -83,7 +83,7 @@ type=SERVICE_START msg=audit(08/23/2024 23:26:20.555:327) : pid=1 uid=root auid=
 
 # Response
 
-### step.1: block attackers ip by firewalld:
+## step.1: block attackers ip by firewalld:
 ```
 systemctl start firewalld
 
@@ -91,7 +91,45 @@ firewall-cmd --permanent --add-rich-rule="rule family='ipv4' source address='192
 firewall-cmd --reload
 ```
 
-### step.2: write audit rule which audits processes that are run by nginx system-user.
+## step.2: write audit rule which audits processes that are run by system-user nginx.
 ```
 auditctl -a always,exit -F arch=b64 -S execve -F auid=992 -k nginx_execve
 ```
+from now on if any command that get executed by system-user nginx it will be logged in auditd:
+
+### example:
+suppose you have a nginx server with php serving a index.php in `/var/www/attack/index.php`. <br>
+the code inside index.php file is malicious. it executes any command that commes form cmd argument as its value.
+
+index.php:
+```
+<?php
+echo "THIS IS HOME WHERE YOU LAND..";
+header('Content-Type: text/plain');
+
+echo "cmd parameter: ";
+var_dump($_GET['cmd'] ?? null);
+
+$command = $_GET['cmd'];
+system($command);
+
+?>
+```
+
+now when you have the nginx execve auditing rule, when you try: `http://192.168.56.102/?cmd=cat+%2Fetc%2Fpasswd` you can see all user data.<br>
+the audit rule for this would be:
+```
+type=PROCTITLE msg=audit(07/21/2026 10:36:04.888:3157) : proctitle=sh -c cat /etc/passwd
+type=PATH msg=audit(07/21/2026 10:36:04.888:3157) : item=1 name=/lib64/ld-linux-x86-64.so.2 inode=100673912 dev=fd:00 mode=file,755 ouid=root ogid=root rdev=00:00 obj=system_u:object_r:ld_so_t:s0 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(07/21/2026 10:36:04.888:3157) : item=0 name=/bin/sh inode=67147252 dev=fd:00 mode=file,755 ouid=root ogid=root rdev=00:00 obj=system_u:object_r:shell_exec_t:s0 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(07/21/2026 10:36:04.888:3157) : cwd=/var/www/attack
+type=EXECVE msg=audit(07/21/2026 10:36:04.888:3157) : argc=3 a0=sh a1=-c a2=cat /etc/passwd
+type=SYSCALL msg=audit(07/21/2026 10:36:04.888:3157) : arch=x86_64 syscall=execve success=yes exit=0 a0=0x7f71c369e2c7 a1=0x7ffdbafcbaf0 a2=0x558028fb8050 a3=0x8 items=2 ppid=161633 pid=165888 auid=unset uid=nginx gid=nginx euid=nginx suid=nginx fsuid=nginx egid=nginx sgid=nginx fsgid=nginx tty=(none) ses=unset comm=sh exe=/usr/bin/bash subj=system_u:system_r:httpd_t:s0 key=nginx_execve
+----
+type=PROCTITLE msg=audit(07/21/2026 10:36:04.890:3158) : proctitle=sh -c cat /etc/passwd
+type=PATH msg=audit(07/21/2026 10:36:04.890:3158) : item=1 name=/lib64/ld-linux-x86-64.so.2 inode=100673912 dev=fd:00 mode=file,755 ouid=root ogid=root rdev=00:00 obj=system_u:object_r:ld_so_t:s0 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(07/21/2026 10:36:04.890:3158) : item=0 name=/usr/bin/cat inode=67531371 dev=fd:00 mode=file,755 ouid=root ogid=root rdev=00:00 obj=system_u:object_r:bin_t:s0 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(07/21/2026 10:36:04.890:3158) : cwd=/var/www/attack
+type=EXECVE msg=audit(07/21/2026 10:36:04.890:3158) : argc=2 a0=cat a1=/etc/passwd
+type=SYSCALL msg=audit(07/21/2026 10:36:04.890:3158) : arch=x86_64 syscall=execve success=yes exit=0 a0=0x5566aafa2580 a1=0x5566aafa2860 a2=0x5566aafa0910 a3=0x0 items=2 ppid=161633 pid=165888 auid=unset uid=nginx gid=nginx euid=nginx suid=nginx fsuid=nginx egid=nginx sgid=nginx fsgid=nginx tty=(none) ses=unset comm=cat exe=/usr/bin/cat subj=system_u:system_r:httpd_t:s0 key=nginx_execve
+``` 
