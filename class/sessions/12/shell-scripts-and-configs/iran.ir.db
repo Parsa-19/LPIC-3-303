@@ -1,0 +1,13 @@
+$TTL 1D
+iran.ir.	IN SOA	ns1.iran.ir.  admin.iran.ir. (
+					0	; serial
+					1D	; refresh
+					1H	; retry
+					1W	; expire
+					3H )	; minimum
+	NS	@
+	A	127.0.0.1
+	AAAA	::1
+www	A	127.0.0.1
+mail 	A	127.0.0.1
+@	MX 10   mail.iran.ir.
