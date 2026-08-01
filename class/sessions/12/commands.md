@@ -9,8 +9,8 @@ $ systemctl start named-chroot
 ```
 
 ## we use a ready script to configure named-chroot
+on master: <br>
 copy every thing in `shell-scripts-and-configs` to `/var/named/chroot`
-on master:
 ```
 $ cd /var/named/chroot
 $ chmod +x named.sh
@@ -18,6 +18,7 @@ $ ./named.sh
 ```
 
 ## configure master named.conf specific to your env
+on master: <br>
 edit `/var/named/chroot/etc/named.conf`.<br>
 add acl at top of the file below the initial comments:
 ```
