@@ -41,6 +41,7 @@ gpg --edit-key [USER-EMAIL]
 # -e encrypts, -s signs, -a armor-format, -r choose which pub key to ecrypt with
 gpg --encrypt -s -a -r desired-user@example.com secret.txt
 
+# both decrypt and verify the signuture and wirtes the decrypted data to a file
 gpg --decrypt secret.txt.asc > secret.txt
 
 
