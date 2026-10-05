@@ -57,7 +57,7 @@ echo $?
 
 cryptsetup isLuks /dev/sdb1 && echo done
 
-cryptsetup luksOpen /dev/sdb1 secret
+cryptsetup   /dev/sdb1 secret
 	> password
 
 ls -d /dev/mapper/secret

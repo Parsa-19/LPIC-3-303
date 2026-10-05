@@ -77,7 +77,7 @@ firewall-cmd  --add-rich-rule='rule family="ipv4" source address="192.168.56.1" 
 ls -l a.txt
 setfacl -m u:hacker:rwx a.txt
 getfacl a.txt
-setfacl -m u:hacker:--x a.txt  # over write the last acl set
+setfacl -m u:hacker:--x a.txt  # overwrites the last acl set
 setfacl -x u:hacker a.txt
 setfacl -b a.txt  # also removes the mask
 

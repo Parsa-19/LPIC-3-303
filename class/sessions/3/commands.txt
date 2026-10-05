@@ -120,6 +120,7 @@ nmap -sT -p 22 192.168.3.27  # full scan, syn -> syn/ack -> ack
 nmap -sS -p 22 192.168.3.27  # stealth scan / syn scan
 nmap -sU -p 22 192.168.3.27  # udp scan
 nmap -sP 192.168.3.0/24      # ping and detect live IPs(live host detection)
+sudo nmap -sF -p 443 192.168.3.27  # FIN scan in which a fin (not standard packet so server doesnt understand) packet is sent and if nothing came back as answer we asume the port is either open or nothing is listenging on that but if RST came back the the port is closed
 
 nmap -Pn 192.168.3.27        # scan port without pinging host
 nmap -sT -p 22 -sV 192.168.3.17	  # full scan + show the version of service
